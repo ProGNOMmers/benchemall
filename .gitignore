@@ -1,0 +1,14 @@
+# Global ignores
+
+/rack/log/*.log
+/rack/tmp
+/rails/log/*.log
+/rails/tmp
+/sinatra/log/*.log
+/sinatra/tmp
+
+# Rails ignores
+
+/rails/.bundle
+/rails/db/*.sqlite3
+/rails/db/*.sqlite3-journal
