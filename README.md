@@ -12,7 +12,7 @@ Disclaimers
 Preface - [Give me the blood!!!](http://thisshouldlinkdirectlytobenchmarksbelow.com)
 ------------------------------
 
-My name is Maurizio De Santis, and I work as web developer in Rome. I use Ruby on Rails in my work since the 2.2 version.
+My name is Maurizio De Santis, and I work as web developer in Rome. I use Ruby on Rails at work since the 2.2 version.
 
 As a Ruby developer I'm aware about the variety of Ruby application servers, and the difference they do in the publishing of a high-load web app: you could have to buy another couple of servers just for a bad application server choice.
 
