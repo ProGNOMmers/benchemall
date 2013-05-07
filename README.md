@@ -46,7 +46,7 @@ Passenger VS Unicorn - A comparison - The old days
     <tr>
         <td>Maintainance</td>
         <td>
-            This was IMHO the worst thing of Passenger: using it with Nginx (as I did), you had to renounce to the package version and the related autoupdates in favour of a compile-and-forget strategy, which can lead to security concerns.
+            This was IMHO the main Passenger weakness: using it with Nginx (as I did), you had to renounce to install the web server distro package in favour of a compile-and-forget strategy (who really ), which can lead to security concerns.
         </td>
         <td><code>gem update unicorn</code> when you didn't have anything to do, even Facebook is boring</td>
     </tr>
@@ -83,7 +83,7 @@ Passenger VS Unicorn - A comparison - The old days
             If I remember well, even version 2 managed the memory quite well; but I don't know the details (and I don't want to install it :P )
         </td>
         <td>
-            This was the dark side of Unicorn: how to occupy 500 MB with one single application server? start a Rails app with 10 Unicorn workes, et voilà!
+            And now the dark side of Unicorn: how to occupy 500 MB with one single application server? start a Rails app with 10 Unicorn workes, et voilà!
         </td>
     </tr>
     <tr>
