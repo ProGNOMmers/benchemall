@@ -16,12 +16,12 @@ My name is Maurizio De Santis, and I work as web developer in Rome. I use Ruby o
 
 As a Ruby developer I'm aware about the variety of Ruby application servers, and the difference they do in the publishing of a high-load web app: you could have to buy another couple of servers just for a bad application server choice.
 
-At the moment there's quite a wide list of Ruby application servers used on production environments: [Thin](http://code.macournoyer.com/thin/), [Mongrel](http://mongrel.rubyforge.org), [Passenger](https://www.phusionpassenger.com/), [Unicorn](http://unicorn.bogomips.org/), [Puma](http://puma.io/)... each of them with its strengths and weaknesses: easy/pain in the ass to install/configure/maintain, stable, reliable (JRuby, I'm looking at you), multithreading support (just because it's cool), fast/slow, resources-saver/waster, ... 
+At the moment there's quite a wide list of Ruby application servers used on production environments: [Thin](http://code.macournoyer.com/thin/), [Mongrel](http://mongrel.rubyforge.org), [Passenger](https://www.phusionpassenger.com/), [Unicorn](http://unicorn.bogomips.org/), [Puma](http://puma.io/)... each of them with its strengths and weaknesses: easy/pain in the ass to install/configure/maintain, stable, reliable (JRuby platform I'm looking at you), multithreading support (just because multithreading is cool), fast/slow, resources-saver/waster, ... 
 
 Over the years, two of them standed out for features tradeoff: Passenger and Unicorn.
 
-Comparison - the old days
--------------------------
+Passenger VS Unicorn - A comparison - The old days
+--------------------------------------------------
 
 <table>
     <tr>
@@ -96,6 +96,9 @@ Comparison - the old days
         </td>
     </tr>
 </table>
+
+Passenger VS Unicorn - A comparison - Nowadays
+----------------------------------------------
 
 Benchmarks!
 -----------
