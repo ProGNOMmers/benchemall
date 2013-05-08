@@ -23,7 +23,7 @@ At the moment there's quite a wide list of Ruby application servers used on prod
 
 Over the years, two of them standed out for features tradeoff: Passenger and Unicorn.
 
-## Passenger VS Unicorn: a comparison
+## Passenger vs Unicorn: a comparison
 
 ### The old days 
 
