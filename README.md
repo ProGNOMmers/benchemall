@@ -1,4 +1,4 @@
-Bench'em all!
+[Bench'em all!](https://github.com/ProGNOMmers/benchemall)
 =============
 
 WORK IN PROGRESS - STAY OUT!!!
@@ -7,10 +7,17 @@ WORK IN PROGRESS - STAY OUT!!!
 Disclaimers
 -----------
 1. Benchmarks are benchmarks, nothing more, nothing less
-2. I like to be silly, so forgive my humor :P
+2. Facts written here are taken from the web and/or my experience, so they can be wrong and/or missing. If so, please [let me know](https://github.com/ProGNOMmers/benchemall/issues)
+3. I'm not mother tongue in English, so some words/phrases can is incomprensible. If so, please [let me know](https://github.com/ProGNOMmers/benchemall/issues)
+4. I like to be silly, please forgive my humor :P
 
-Preface - [Give me the blood!!!](http://thisshouldlinkdirectlytobenchmarksbelow.com)
-------------------------------
+Description
+-----------
+
+Bench'em all is (at the moment) a collection of some Ruby application servers ([Passenger](https://www.phusionpassenger.com/), [Unicorn](http://unicorn.bogomips.org/), [Puma](http://puma.io/) over Nginx benchmarks, but its goal is to provide a replicable benchmarking and benchmarks data collecting and aggregating platform targeting Ruby web applications.
+
+Preface - [Give me the blood!!!](#benchmarks)
+---------------------------------------------
 
 My name is Maurizio De Santis, and I work as web developer in Rome. I use Ruby on Rails at work since the 2.2 version.
 
@@ -39,7 +46,7 @@ Passenger VS Unicorn - A comparison - The old days
     <tr>
         <td>Configuration</td>
         <td>
-            Set up a couple of configuration variables and you were good to go. Just a "little" problem: if you had multiple apps which ran on multiple Ruby versions, you could forget to use it: the Ruby executable config scope was at web server level.
+            Set up a couple of configuration variables and you were good to go. Just a "little" problem: if you had multiple apps ran by different Ruby interpreters, you could forget to use it: the Ruby executable config scope was at web server level.
         </td>
         <td>Unicorn configuration was not trivial: you had to configure the application server in order to start the web site properly, configure the web server in order to reverse-proxy the application server and to serve the static files, and customize some Unicorn service init scripts found on Google in order to manage the application server processes. Whoa!</td>
     </tr>
@@ -100,10 +107,84 @@ Passenger VS Unicorn - A comparison - The old days
 Passenger VS Unicorn - A comparison - Nowadays
 ----------------------------------------------
 
+<table>
+    <tr>
+        <th></th>
+        <th>Passenger ( version 4 )</th>
+        <th>Unicorn ( version 4 )</th>
+    </tr>
+    <tr>
+        <td>Installation</td>
+        <td>
+            As above, plus the standalone option
+        </td>
+        <td>As above</td>
+    </tr>
+    <tr>
+        <td>Configuration</td>
+        <td>
+            As above, plus the standalone option and the 
+        </td>
+        <td>Unicorn configuration was not trivial: you had to configure the application server in order to start the web site properly, configure the web server in order to reverse-proxy the application server and to serve the static files, and customize some Unicorn service init scripts found on Google in order to manage the application server processes. Whoa!</td>
+    </tr>
+    <tr>
+        <td>Maintainance</td>
+        <td>
+            This was IMHO the main Passenger weakness: using it with Nginx (as I did), you had to renounce to install the web server distro package in favour of a compile-and-forget strategy (who really ), which can lead to security concerns.
+        </td>
+        <td><code>gem update unicorn</code> when you didn't have anything to do, even Facebook is boring</td>
+    </tr>
+    <tr>
+        <td>Stability</td>
+        <td>
+            Stable
+        </td>
+        <td>
+            Stable
+        </td>
+    </tr>
+    <tr>
+        <td>Reliability</td>
+        <td>
+            JRuby yes
+        </td>
+        <td>
+            JRuby no
+        </td>
+    </tr>
+    <tr>
+        <td>Multithreading</td>
+        <td>
+            No - I think it spawned child processes (a.k.a. workers) - if you know it pull request me
+        </td>
+        <td>
+            No - spawned child processes (a.k.a. workers)
+        </td>
+    </tr>
+    <tr>
+        <td>Resources consumption</td>
+        <td>
+            If I remember well, even version 2 managed the memory quite well; but I don't know the details (and I don't want to install it :P )
+        </td>
+        <td>
+            And now the dark side of Unicorn: how to occupy 500 MB with one single application server? start a Rails app with 10 Unicorn workes, et voilà!
+        </td>
+    </tr>
+    <tr>
+        <td>Performance</td>
+        <td>
+            Not slow (which in rubinese meant fast)
+        </td>
+        <td>
+            Not slow (which in rubinese meant fast)
+        </td>
+    </tr>
+</table>
+
 Benchmarks!
 -----------
 
-So: when I saw the [link about the Passenger 4.1.0 release on Hacker News](https://news.ycombinator.com/item?id=5661874), I thought "Horray! This is the moment I waited for years! Let's bench'em all (the ones that are interesting to me - which are Passenger, Unicorn and Puma - if you are a fan of other app servers let me know!)!"
+So: when I saw the [link about the Passenger 4.1.0 release on Hacker News](https://news.ycombinator.com/item?id=5661874), I thought "Horray! This is the moment I waited for years! Let's bench'em all (the ones that are interesting to me - which are Passenger, Unicorn and Puma - if you are a fan of other app servers [let me know](https://github.com/ProGNOMmers/benchemall/issues))!"
 
 Hardware:
 CPU: Intel(R) Core(TM) i7-2600K CPU @ 3.40GHz (8 cores)
