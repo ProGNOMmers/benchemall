@@ -11,15 +11,15 @@
 
 ## Description
 
-[Gotta bench'em all!](https://github.com/ProGNOMmers/gottabenchemall) is (at the moment) a collection of some Ruby application servers ([Passenger](https://www.phusionpassenger.com/), [Unicorn](http://unicorn.bogomips.org/), [Puma](http://puma.io/)) over Nginx benchmarks, but its goal is to provide a replicable benchmarking and benchmarks data collecting and aggregation platform targeting Ruby web applications.
+[Gotta bench'em all!](https://github.com/ProGNOMmers/gottabenchemall) is (at the moment) a collection of some Ruby application servers ([Passenger](https://www.phusionpassenger.com/), [Unicorn](http://unicorn.bogomips.org/), [Puma](http://puma.io/)) benchmarks, but its goal is to provide a replicable benchmarking and benchmarks data collecting and aggregation platform targeting Ruby web applications.
 
 ## Preface - [Give me the blood!!!](#benchmarks)
 
 My name is Maurizio De Santis, and I work as web developer in Rome. I use Ruby on Rails at work since the 2.2 version.
 
-As a Ruby developer I'm aware about the variety of Ruby application servers, and the difference they do in the publishing of a high-load web app: you could have to buy another couple of servers just for a bad application server choice.
+As a Ruby developer I'm aware about the variety of Ruby application servers, and the difference they do in the publishing of an high-load web app: you could have to buy another couple of servers just for a bad application server choice.
 
-At the moment there's quite a wide list of Ruby application servers used on production environments: [Thin](http://code.macournoyer.com/thin/), [Mongrel](http://mongrel.rubyforge.org), [Passenger](https://www.phusionpassenger.com/), [Unicorn](http://unicorn.bogomips.org/), [Puma](http://puma.io/)... each of them with its strengths and weaknesses: easy/pain in the ass to install/configure/maintain, stable, reliable (JRuby platform I'm looking at you), multithreading support (just because multithreading is cool), fast/slow, resources-saver/waster, ... 
+At the moment there's quite a wide list of Ruby application servers used on production environments: [Mongrel](http://mongrel.rubyforge.org), [Thin](http://code.macournoyer.com/thin/), [Passenger](https://www.phusionpassenger.com/), [Unicorn](http://unicorn.bogomips.org/), [Puma](http://puma.io/)... each of them with its own traits: easy/pain in the ass to install/configure/maintain, stable, reliable (JRuby platform I'm looking at you), multithreading support, fast/slow, resources sparing/hungry, ... 
 
 Over the years, two of them standed out for features tradeoff: Passenger and Unicorn.
 
@@ -133,7 +133,7 @@ Over the years, two of them standed out for features tradeoff: Passenger and Uni
     <tr>
         <td>Stability</td>
         <td>
-            Stable (I guess so :P )
+            Stable (I guess :P )
         </td>
         <td>
             As above (stable)
@@ -177,10 +177,13 @@ Over the years, two of them standed out for features tradeoff: Passenger and Uni
     </tr>
 </table>
 
-Benchmarks!
------------
+## Reason for the project name
 
-So: when I saw the [link about the Passenger 4.1.0 release on Hacker News](https://news.ycombinator.com/item?id=5661874), I thought "Horray! This is the moment I waited for years: __gotta bench'em all!!!__"
+When I saw the [link about the Passenger 4.1.0 release on Hacker News](https://news.ycombinator.com/item?id=5661874), I thought:
+
+> Horray! This is the moment I waited for years: _gotta bench'em all!_
+
+## Benchmarks!
 
 Hardware:
 CPU: Intel(R) Core(TM) i7-2600K CPU @ 3.40GHz (8 cores)
