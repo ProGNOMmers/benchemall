@@ -1,4 +1,4 @@
-# [Gotta bench'em all!](https://github.com/ProGNOMmers/gottabenchemall)
+# Gotta bench'em all!
 
 # WORK IN PROGRESS - STAY OUT!!!
 
@@ -11,7 +11,7 @@
 
 ## Description
 
-Gotta bench'em all! is (at the moment) a collection of some Ruby application servers ([Passenger](https://www.phusionpassenger.com/), [Unicorn](http://unicorn.bogomips.org/), [Puma](http://puma.io/)) over Nginx benchmarks, but its goal is to provide a replicable benchmarking and benchmarks data collecting and aggregation platform targeting Ruby web applications.
+[Gotta bench'em all!](https://github.com/ProGNOMmers/gottabenchemall) is (at the moment) a collection of some Ruby application servers ([Passenger](https://www.phusionpassenger.com/), [Unicorn](http://unicorn.bogomips.org/), [Puma](http://puma.io/)) over Nginx benchmarks, but its goal is to provide a replicable benchmarking and benchmarks data collecting and aggregation platform targeting Ruby web applications.
 
 ## Preface - [Give me the blood!!!](#benchmarks)
 
