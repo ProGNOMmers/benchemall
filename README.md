@@ -87,7 +87,7 @@ Over the years, two of them standed out for features tradeoff: Passenger and Uni
             If I remember well, even version 2 managed the memory quite well; but I don't know the details (and I don't want to install it :P )
         </td>
         <td>
-            And now the dark side of Unicorn: how to occupy 500 MB with one single application server? start a Rails app with 10 Unicorn workes, et voilà!
+            And now the dark side of Unicorn: how to occupy 500 MB of RAM with one single application server? start a Rails app with 10 Unicorn workes, et voilà!
         </td>
     </tr>
     <tr>
@@ -119,7 +119,7 @@ Over the years, two of them standed out for features tradeoff: Passenger and Uni
     <tr>
         <td>Configuration</td>
         <td>
-            As above, plus the standalone option and, at last, the Ruby interpreter config option can be scoped inside the http, server, location or if blocks (on Nginx). Well done!
+            As above, plus the standalone option and, at last, the Ruby interpreter config option can be scoped inside the Nginx http, server, location or if blocks. Well done!
         </td>
         <td>As above</td>
     </tr>
