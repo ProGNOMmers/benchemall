@@ -1,23 +1,19 @@
-[Bench'em all!](https://github.com/ProGNOMmers/benchemall)
-=============
+# [Bench'em all!](https://github.com/ProGNOMmers/benchemall)
 
-WORK IN PROGRESS - STAY OUT!!!
-==============================
+# WORK IN PROGRESS - STAY OUT!!!
 
-Disclaimers
------------
+## Disclaimers
+
 1. Benchmarks are benchmarks, nothing more, nothing less
 2. Facts written here are taken from the web and/or my experience, so they can be wrong and/or missing. If so, please [let me know](https://github.com/ProGNOMmers/benchemall/issues)
 3. I'm not mother tongue in English, so some words/phrases can is incomprensible. If so, please [let me know](https://github.com/ProGNOMmers/benchemall/issues)
 4. I like to be silly, please forgive my humor :P
 
-Description
------------
+## Description
 
-Bench'em all is (at the moment) a collection of some Ruby application servers ([Passenger](https://www.phusionpassenger.com/), [Unicorn](http://unicorn.bogomips.org/), [Puma](http://puma.io/) over Nginx benchmarks, but its goal is to provide a replicable benchmarking and benchmarks data collecting and aggregating platform targeting Ruby web applications.
+Bench'em all is (at the moment) a collection of some Ruby application servers ([Passenger](https://www.phusionpassenger.com/), [Unicorn](http://unicorn.bogomips.org/), [Puma](http://puma.io/)) over Nginx benchmarks, but its goal is to provide a replicable benchmarking and benchmarks data collecting and aggregation platform targeting Ruby web applications.
 
-Preface - [Give me the blood!!!](#benchmarks)
----------------------------------------------
+## Preface - [Give me the blood!!!](#benchmarks)
 
 My name is Maurizio De Santis, and I work as web developer in Rome. I use Ruby on Rails at work since the 2.2 version.
 
@@ -27,8 +23,9 @@ At the moment there's quite a wide list of Ruby application servers used on prod
 
 Over the years, two of them standed out for features tradeoff: Passenger and Unicorn.
 
-Passenger VS Unicorn - A comparison - The old days
---------------------------------------------------
+## Passenger VS Unicorn: a comparison
+
+### The old days 
 
 <table>
     <tr>
@@ -53,7 +50,7 @@ Passenger VS Unicorn - A comparison - The old days
     <tr>
         <td>Maintainance</td>
         <td>
-            This was IMHO the main Passenger weakness: using it with Nginx (as I did), you had to renounce to install the web server distro package in favour of a compile-and-forget strategy (who really ), which can lead to security concerns.
+            This was IMHO the main Passenger weakness: using it with Nginx (as I did), you had to renounce to install the web server distro package in favour of a compile-and-forget strategy, which can lead to security concerns.
         </td>
         <td><code>gem update unicorn</code> when you didn't have anything to do, even Facebook is boring</td>
     </tr>
@@ -69,7 +66,7 @@ Passenger VS Unicorn - A comparison - The old days
     <tr>
         <td>Reliability</td>
         <td>
-            JRuby yes
+            JRuby no
         </td>
         <td>
             JRuby no
@@ -78,14 +75,14 @@ Passenger VS Unicorn - A comparison - The old days
     <tr>
         <td>Multithreading</td>
         <td>
-            No - I think it spawned child processes (a.k.a. workers) - if you know it pull request me
+            No - I think it spawned child processes (a.k.a. workers)
         </td>
         <td>
             No - spawned child processes (a.k.a. workers)
         </td>
     </tr>
     <tr>
-        <td>Resources consumption</td>
+        <td>Resource consumption</td>
         <td>
             If I remember well, even version 2 managed the memory quite well; but I don't know the details (and I don't want to install it :P )
         </td>
@@ -104,8 +101,7 @@ Passenger VS Unicorn - A comparison - The old days
     </tr>
 </table>
 
-Passenger VS Unicorn - A comparison - Nowadays
-----------------------------------------------
+### Nowadays
 
 <table>
     <tr>
@@ -123,24 +119,24 @@ Passenger VS Unicorn - A comparison - Nowadays
     <tr>
         <td>Configuration</td>
         <td>
-            As above, plus the standalone option and the 
+            As above, plus the standalone option and, at last, the Ruby interpreter config option can be scoped inside the http, server, location or if blocks (on Nginx). Well done!
         </td>
-        <td>Unicorn configuration was not trivial: you had to configure the application server in order to start the web site properly, configure the web server in order to reverse-proxy the application server and to serve the static files, and customize some Unicorn service init scripts found on Google in order to manage the application server processes. Whoa!</td>
+        <td>As above</td>
     </tr>
     <tr>
         <td>Maintainance</td>
         <td>
-            This was IMHO the main Passenger weakness: using it with Nginx (as I did), you had to renounce to install the web server distro package in favour of a compile-and-forget strategy (who really ), which can lead to security concerns.
+            As above, plus the standalone option (<code>gem update passenger</code>)
         </td>
-        <td><code>gem update unicorn</code> when you didn't have anything to do, even Facebook is boring</td>
+        <td>As above</td>
     </tr>
     <tr>
         <td>Stability</td>
         <td>
-            Stable
+            Stable (I guess so :P )
         </td>
         <td>
-            Stable
+            As above (stable)
         </td>
     </tr>
     <tr>
@@ -149,34 +145,34 @@ Passenger VS Unicorn - A comparison - Nowadays
             JRuby yes
         </td>
         <td>
-            JRuby no
+            As above (JRuby no)
         </td>
     </tr>
     <tr>
         <td>Multithreading</td>
         <td>
-            No - I think it spawned child processes (a.k.a. workers) - if you know it pull request me
+            Yes - it supports both process and thread concurrency models, though it is not possible have them enabled at the same time (unlike f.e. Puma)
         </td>
         <td>
-            No - spawned child processes (a.k.a. workers)
+            As above (no)
         </td>
     </tr>
     <tr>
-        <td>Resources consumption</td>
+        <td>Resource consumption</td>
         <td>
-            If I remember well, even version 2 managed the memory quite well; but I don't know the details (and I don't want to install it :P )
+            Have to benchmark it (TODO: write something about the test results)
         </td>
         <td>
-            And now the dark side of Unicorn: how to occupy 500 MB with one single application server? start a Rails app with 10 Unicorn workes, et voilà!
+            As above (hungry), but using the REE / Ruby 2.0 <code>GC.copy_on_write_friendly</code> feature things get much better (TODO: write something about the test results)
         </td>
     </tr>
     <tr>
         <td>Performance</td>
         <td>
-            Not slow (which in rubinese meant fast)
+            TODO: write something about the test results
         </td>
         <td>
-            Not slow (which in rubinese meant fast)
+            TODO: write something about the test results
         </td>
     </tr>
 </table>
