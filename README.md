@@ -1,17 +1,17 @@
-# [Bench'em all!](https://github.com/ProGNOMmers/benchemall)
+# [Gotta bench'em all!](https://github.com/ProGNOMmers/gottabenchemall)
 
 # WORK IN PROGRESS - STAY OUT!!!
 
 ## Disclaimers
 
 1. Benchmarks are benchmarks, nothing more, nothing less
-2. Facts written here are taken from the web and/or my experience, so they can be wrong and/or missing. If so, please [let me know](https://github.com/ProGNOMmers/benchemall/issues)
-3. I'm not mother tongue in English, so some words/phrases can is incomprensible. If so, please [let me know](https://github.com/ProGNOMmers/benchemall/issues)
-4. I like to be silly, please forgive my humor :P
+2. Facts written here are taken from the web and/or my experience, so they can be wrong and/or missing. If so, please [let me know](https://github.com/ProGNOMmers/gottabenchemall/issues)
+3. I'm not mother tongue in English, so some words/phrases can is incomprensible. If so, please [let me know](https://github.com/ProGNOMmers/gottabenchemall/issues)
+4. I love to be silly, please forgive my humor :P
 
 ## Description
 
-Bench'em all is (at the moment) a collection of some Ruby application servers ([Passenger](https://www.phusionpassenger.com/), [Unicorn](http://unicorn.bogomips.org/), [Puma](http://puma.io/)) over Nginx benchmarks, but its goal is to provide a replicable benchmarking and benchmarks data collecting and aggregation platform targeting Ruby web applications.
+Gotta bench'em all! is (at the moment) a collection of some Ruby application servers ([Passenger](https://www.phusionpassenger.com/), [Unicorn](http://unicorn.bogomips.org/), [Puma](http://puma.io/)) over Nginx benchmarks, but its goal is to provide a replicable benchmarking and benchmarks data collecting and aggregation platform targeting Ruby web applications.
 
 ## Preface - [Give me the blood!!!](#benchmarks)
 
@@ -180,7 +180,7 @@ Over the years, two of them standed out for features tradeoff: Passenger and Uni
 Benchmarks!
 -----------
 
-So: when I saw the [link about the Passenger 4.1.0 release on Hacker News](https://news.ycombinator.com/item?id=5661874), I thought "Horray! This is the moment I waited for years! Let's bench'em all (the ones that are interesting to me - which are Passenger, Unicorn and Puma - if you are a fan of other app servers [let me know](https://github.com/ProGNOMmers/benchemall/issues))!"
+So: when I saw the [link about the Passenger 4.1.0 release on Hacker News](https://news.ycombinator.com/item?id=5661874), I thought "Horray! This is the moment I waited for years: __gotta bench'em all!!!__"
 
 Hardware:
 CPU: Intel(R) Core(TM) i7-2600K CPU @ 3.40GHz (8 cores)
