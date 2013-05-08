@@ -181,9 +181,9 @@ Over the years, two of them standed out for features tradeoff: Passenger and Uni
 
 When I saw the [link about the Passenger 4.1.0 release on Hacker News](https://news.ycombinator.com/item?id=5661874), I thought:
 
-> Horray! This is the moment I waited for years: _gotta bench'em all!_
+> Horray! This is the moment I waited for years: _gotta bench'em all!!!_
 
-## Benchmarks!
+## Benchmarks
 
 Hardware:
 CPU: Intel(R) Core(TM) i7-2600K CPU @ 3.40GHz (8 cores)
