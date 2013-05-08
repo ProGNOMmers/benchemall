@@ -93,10 +93,10 @@ Over the years, two of them standed out for features tradeoff: Passenger and Uni
     <tr>
         <td>Performance</td>
         <td>
-            Not slow (which in rubinese meant fast)
+            Not slow (which in Rubinese meant fast)
         </td>
         <td>
-            Not slow (which in rubinese meant fast)
+            Not slow (which in Rubinese meant fast)
         </td>
     </tr>
 </table>
