@@ -177,7 +177,7 @@ Over the years, two of them standed out for features tradeoff: Passenger and Uni
     </tr>
 </table>
 
-## Reason for the project name
+## Project name
 
 When I saw the [link about the Passenger 4.1.0 release on Hacker News](https://news.ycombinator.com/item?id=5661874), I thought:
 
