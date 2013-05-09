@@ -5,13 +5,7 @@ module GottaBenchEmAll
   # TODO export to gem
   class Siege
 
-    class Option
-      attr_reader   :type
-      attr_accessor :value
-      def initialize(type, value)
-        @type, @default_value = type, value
-      end
-    end
+    require 'gotta_bench_em_all/siege/option'
 
     DEFAULT_OPTIONS = { version:               Option.new( :unary,  false ),
                         configuration:         Option.new( :unary,  nil   ), 
