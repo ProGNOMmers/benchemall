@@ -42,6 +42,7 @@ module GottaBenchEmAll
     end
 
     private
+    
     def to_option!(name, value)
       Option.new(name, value)
     rescue ArgumentError

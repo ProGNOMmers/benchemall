@@ -53,6 +53,7 @@ module GottaBenchEmAll
       end
 
       private
+      
       def type_check
         type
       rescue KeyError
