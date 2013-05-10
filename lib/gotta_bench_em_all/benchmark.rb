@@ -3,7 +3,7 @@ require 'gotta_bench_em_all/siege'
 
 module GottaBenchEmAll
   class Benchmark
-    def initialize()
+    def initialize
       
     end
 

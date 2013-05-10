@@ -7,31 +7,45 @@ module GottaBenchEmAll
 
     require 'gotta_bench_em_all/siege/option'
 
-    DEFAULT_OPTIONS = { version:               Option.new( :unary,  false ),
-                        configuration:         Option.new( :unary,  nil   ), 
-                        verbose:               Option.new( :unary,  false ), 
-                        get:                   Option.new( :unary,  false ), 
-                        concurrent_requests:   Option.new( :binary, 10    ), 
-                        internet:              Option.new( :unary,  false ), 
-                        delay:                 Option.new( :binary, 0     ), 
-                        benchmark:             Option.new( :unary,  false ),
-                        repetitions:           Option.new( :binary, 1     ),
-                        time:                  Option.new( :binary, nil   ),
-                        log_file:              Option.new( :binary, nil   ),
-                        log_file_entries_mark: Option.new( :binary, nil   ),
-                        header:                Option.new( :binary, nil   ),
-                        siegerc_file:          Option.new( :binary, nil   ),
-                        urls_file:             Option.new( :binary, nil   ),
-                        user_agent:            Option.new( :binary, nil   )}
+    BIN = 'siege'
 
-    # XXX use Ruby 2.0 keyword arguments when Ruby 1.9 goes out
-    def initialize(*options)
-      options = values.extract_options!
-      name = options.fetch(:name, 'default')
+    DEFAULT_OPTIONS = { version:               false ,
+                        configuration:         nil   ,
+                        verbose:               false ,
+                        get:                   false ,
+                        concurrent_requests:   10    ,
+                        internet:              false ,
+                        delay:                 0     ,
+                        benchmark:             false ,
+                        repetitions:           1     ,
+                        time:                  nil   ,
+                        log_file:              nil   ,
+                        log_file_entries_mark: nil   ,
+                        header:                nil   ,
+                        siegerc_file:          nil   ,
+                        urls_file:             nil   ,
+                        user_agent:            nil   }
+
+    attr_reader :options
+
+    # XXX use Ruby 2.0 keyword arguments when Ruby 1.9 goes out (probably before then I will be dead)
+    def initialize(options = {})
+      @options = Hash[ DEFAULT_OPTIONS.merge(options).map{ |name, value| to_option!(name, value) } ]
     end
     
-    def run
+    def command
+      "#{BIN} #{options.map(&:to_s).join(' ')}"
+    end
 
+    def run
+      `#{command}`
+    end
+
+    private
+    def to_option!(name, value)
+      Option.new(name, value)
+    rescue ArgumentError
+      raise ArgumentError, "#{name} is not a valid Siege option"
     end
     
   end
