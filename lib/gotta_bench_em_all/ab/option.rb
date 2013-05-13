@@ -61,11 +61,6 @@ module GottaBenchEmAll
 
       def to_s
         to_a.map(&:shellescape).join(' ')
-        # case arguments_number
-        # when 0 then values[0] ? option : ''
-        # when 1 then values[0] ? "#{option} {values[0].to_s.shellescape}" : ''
-        # when 2 then "#{option} {values[0].to_s.shellescape}#{arguments_separator}{values[1].to_s.shellescape}"
-        # end
       end
 
       def to_a
