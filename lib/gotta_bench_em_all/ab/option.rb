@@ -62,18 +62,18 @@ module GottaBenchEmAll
       def to_s
         case arguments_number
         when 0
-          option
+          values[0] ? option : ''
         when 1
-          "#{option} {value[0].to_s.shellescape}"
+          values[0] ? "#{option} {values[0].to_s.shellescape}" : ''
         when 2
-          "#{option} {value[0].to_s.shellescape}#{arguments_separator}{value[1].to_s.shellescape}"
+          "#{option} {values[0].to_s.shellescape}#{arguments_separator}{values[1].to_s.shellescape}"
         end
       end
 
       private
       
       def validate!
-        raise ArgumentError, "#{@name} is not a valid Ab option" unless SCHEME.keys.include? @name
+        raise ArgumentError, "#{@name} is not a valid Ab option" unless SCHEME.has_key? @name
       end
 
     end
