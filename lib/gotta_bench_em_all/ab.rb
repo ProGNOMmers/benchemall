@@ -9,22 +9,23 @@ module GottaBenchEmAll
 
     BIN = 'ab'
 
-    DEFAULT_OPTIONS = { }
+    # DEFAULT_OPTIONS = {}
 
     attr_reader :url, :options
 
     # XXX use Ruby 2.0 keyword arguments when Ruby 1.9 goes out (probably when I will be dead)
     def initialize(url, options = {})
       @url = url
-      @options = Hash[ DEFAULT_OPTIONS.merge(options).map{ |name, values| to_option!(name, *values) } ]
+      # @options = DEFAULT_OPTIONS.merge(options).map{ |name, values| to_option!(name, *values) }
+      @options = options.map{ |name, values| to_option!(name, *values) }
     end
     
-    def command
-      "#{BIN} #{options.map(&:to_s).join(' ')}"
+    def to_a
+      [ BIN ].push( *options.map(&:to_a).flatten ).push url.to_s
     end
 
-    def run
-      `#{command}`
+    def to_s
+      to_a.map(&:shellescape).join(' ')
     end
 
     private

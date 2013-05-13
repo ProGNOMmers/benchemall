@@ -48,7 +48,7 @@ module GottaBenchEmAll
       end
 
       def option
-        @option ||= SCHEME[@name][0]
+        @option ||= "-#{SCHEME[@name][0]}"
       end
 
       def arguments_number
@@ -60,13 +60,19 @@ module GottaBenchEmAll
       end
 
       def to_s
+        to_a.map(&:shellescape).join(' ')
+        # case arguments_number
+        # when 0 then values[0] ? option : ''
+        # when 1 then values[0] ? "#{option} {values[0].to_s.shellescape}" : ''
+        # when 2 then "#{option} {values[0].to_s.shellescape}#{arguments_separator}{values[1].to_s.shellescape}"
+        # end
+      end
+
+      def to_a
         case arguments_number
-        when 0
-          values[0] ? option : ''
-        when 1
-          values[0] ? "#{option} {values[0].to_s.shellescape}" : ''
-        when 2
-          "#{option} {values[0].to_s.shellescape}#{arguments_separator}{values[1].to_s.shellescape}"
+        when 0 then values[0] ? [ option ] : [ ]
+        when 1 then values[0] ? [ option, values[0].to_s ] : [ ]
+        when 2 then [ option, "#{values[0]}#{arguments_separator}#{values[1]}" ]
         end
       end
 
