@@ -16,12 +16,12 @@ module GottaBenchEmAll
 
     # XXX use Ruby 2.0 keyword arguments when Ruby 1.9 goes out (probably when I will be dead)
     def initialize(url, options = {})
-      url = URI.parse url
+      url = URI.parse url.to_s
 
       # For some strange reason, ab doesn't like URLs without path; we add it if necessary
-      if path_without_slash(url)
+      if host_missing_and_path_without_slash(url)
         url.path << '/'
-      elsif empty_path(url)
+      elsif host_present_and_empty_path(url)
         url.path = '/'
       end
 
@@ -41,11 +41,11 @@ module GottaBenchEmAll
 
     private
 
-    def path_without_slash(url)
+    def host_missing_and_path_without_slash(url)
       !url.host && url.path && !url.path.include?('/')
     end
 
-    def empty_path(url)
+    def host_present_and_empty_path(url)
       url.host && ( !url.path || url.path.empty? )
     end
     
