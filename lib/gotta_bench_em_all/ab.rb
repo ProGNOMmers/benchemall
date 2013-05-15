@@ -1,4 +1,5 @@
 require 'gotta_bench_em_all'
+require 'uri'
 
 module GottaBenchEmAll
 
@@ -15,13 +16,23 @@ module GottaBenchEmAll
 
     # XXX use Ruby 2.0 keyword arguments when Ruby 1.9 goes out (probably when I will be dead)
     def initialize(url, options = {})
+      url = URI.parse url
+
+      # For some strange reason, ab doesn't like URLs without path; we add it if necessary
+      if path_without_slash(url)
+        url.path << '/'
+      elsif empty_path(url)
+        url.path = '/'
+      end
+
       @url = url
+      
       # @options = DEFAULT_OPTIONS.merge(options).map{ |name, values| to_option!(name, *values) }
       @options = options.map{ |name, values| to_option!(name, *values) }
     end
     
     def to_a
-      [ BIN ].push( *options.map(&:to_a).flatten ).push url.to_s
+      [ BIN, *options.map(&:to_a).flatten, url.to_s ]
     end
 
     def to_s
@@ -29,6 +40,14 @@ module GottaBenchEmAll
     end
 
     private
+
+    def path_without_slash(url)
+      !url.host && url.path && !url.path.include?('/')
+    end
+
+    def empty_path(url)
+      url.host && ( !url.path || url.path.empty? )
+    end
     
     def to_option!(name, *values)
       Option.new(name, *values)
