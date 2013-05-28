@@ -5,7 +5,7 @@
 ## Disclaimers
 
 1. Benchmarks are benchmarks, nothing more, nothing less
-2. Facts written here are taken from the web and/or my experience, so they can be wrong and/or missing. If so, please [let me know](https://github.com/ProGNOMmers/gottabenchemall/issues)
+2. Facts written here have been extracted from the web and/or my experience, so they can be wrong and/or missing. If so, please [let me know](https://github.com/ProGNOMmers/gottabenchemall/issues)
 3. I'm not mother tongue in English, so some words/phrases can is incomprensible. If so, please [let me know](https://github.com/ProGNOMmers/gottabenchemall/issues)
 4. I love to be silly, please forgive my humor :P
 
