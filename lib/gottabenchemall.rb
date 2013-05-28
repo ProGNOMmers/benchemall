@@ -1,1 +1,7 @@
-require 'gotta_bench_em_all'
+module GottaBenchEmAll
+
+end
+
+require 'gottabenchemall/benchmark'
+
+# https://github.com/ankane/chartkick
